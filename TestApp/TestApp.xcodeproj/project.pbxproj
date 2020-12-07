@@ -15,6 +15,10 @@
 		D03655FC257E65230083D1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03655FB257E65230083D1B6 /* Assets.xcassets */; };
 		D03655FF257E65230083D1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03655FD257E65230083D1B6 /* LaunchScreen.storyboard */; };
 		D036560A257E65230083D1B6 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0365609257E65230083D1B6 /* TestAppTests.swift */; };
+		D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0365617257E6BBF0083D1B6 /* BaseView.swift */; };
+		D036561A257E781C0083D1B6 /* AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0365619257E781C0083D1B6 /* AddSubview.swift */; };
+		D036561C257E83350083D1B6 /* SubViewWithTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036561B257E83350083D1B6 /* SubViewWithTable.swift */; };
+		D036561F257E83AE0083D1B6 /* UIView+AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		D0365605257E65230083D1B6 /* TestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0365609257E65230083D1B6 /* TestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppTests.swift; sourceTree = "<group>"; };
 		D036560B257E65230083D1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0365617257E6BBF0083D1B6 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D0365619257E781C0083D1B6 /* AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubview.swift; sourceTree = "<group>"; };
+		D036561B257E83350083D1B6 /* SubViewWithTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewWithTable.swift; sourceTree = "<group>"; };
+		D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 		D03655EE257E65200083D1B6 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D036561D257E83910083D1B6 /* UIView+Extensions */,
+				D0365614257E6B7C0083D1B6 /* IBDesignable */,
 				D03655EF257E65200083D1B6 /* AppDelegate.swift */,
 				D03655F1257E65200083D1B6 /* SceneDelegate.swift */,
 				D03655F3257E65200083D1B6 /* ViewController.swift */,
@@ -100,6 +110,24 @@
 				D036560B257E65230083D1B6 /* Info.plist */,
 			);
 			path = TestAppTests;
+			sourceTree = "<group>";
+		};
+		D0365614257E6B7C0083D1B6 /* IBDesignable */ = {
+			isa = PBXGroup;
+			children = (
+				D0365617257E6BBF0083D1B6 /* BaseView.swift */,
+				D0365619257E781C0083D1B6 /* AddSubview.swift */,
+				D036561B257E83350083D1B6 /* SubViewWithTable.swift */,
+			);
+			path = IBDesignable;
+			sourceTree = "<group>";
+		};
+		D036561D257E83910083D1B6 /* UIView+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */,
+			);
+			path = "UIView+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03655F4257E65200083D1B6 /* ViewController.swift in Sources */,
+				D036561A257E781C0083D1B6 /* AddSubview.swift in Sources */,
+				D036561C257E83350083D1B6 /* SubViewWithTable.swift in Sources */,
 				D03655FA257E65200083D1B6 /* TestApp.xcdatamodeld in Sources */,
+				D036561F257E83AE0083D1B6 /* UIView+AddSubview.swift in Sources */,
+				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 			);
