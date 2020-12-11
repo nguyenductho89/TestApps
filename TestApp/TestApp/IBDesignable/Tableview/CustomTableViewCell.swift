@@ -8,49 +8,35 @@
 
 import UIKit
 
-@IBDesignable
-class XibView : UIView {
+@IBDesignable class CustomTableViewCell: UITableViewCell {
     
-    var contentView:UIView?
-    @IBInspectable var nibName:String?
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        xibSetup()
-    }
+    var view: UIView!
     
-    func xibSetup() {
-        guard let view = loadViewFromNib() else { return }
-        view.frame = bounds
-        view.autoresizingMask =
-            [.flexibleWidth, .flexibleHeight]
-        addSubview(view)
-        contentView = view
-    }
-    
-    func loadViewFromNib() -> UIView? {
-        guard let nibName = nibName else { return nil }
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        return nib.instantiate(
-            withOwner: self,
-            options: nil).first as? UIView
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        xibSetup()
-        contentView?.prepareForInterfaceBuilder()
-    }
-}
-
-@IBDesignable
-class CustomTableViewCell: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func prepareForInterfaceBuilder() {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
+        setup()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setup()
+    }
+    
+    func setup() {
+        view = loadViewFromNib()
+        view.frame = bounds
+        
+        contentView.addFitSubview(view)
+    }
+    
+    func loadViewFromNib() -> UIView {
+        
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "CustomDesignableView", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        
+        return view
     }
 }
-

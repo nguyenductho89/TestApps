@@ -22,6 +22,10 @@
 		D036561A257E781C0083D1B6 /* AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0365619257E781C0083D1B6 /* AddSubview.swift */; };
 		D036561C257E83350083D1B6 /* SubViewWithTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036561B257E83350083D1B6 /* SubViewWithTable.swift */; };
 		D036561F257E83AE0083D1B6 /* UIView+AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */; };
+		D053BF072583773C0068E6E6 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF062583773C0068E6E6 /* XibView.swift */; };
+		D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */; };
+		D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0B25837DB60068E6E6 /* TestViewController.swift */; };
+		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +59,10 @@
 		D0365619257E781C0083D1B6 /* AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubview.swift; sourceTree = "<group>"; };
 		D036561B257E83350083D1B6 /* SubViewWithTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewWithTable.swift; sourceTree = "<group>"; };
 		D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubview.swift"; sourceTree = "<group>"; };
+		D053BF062583773C0068E6E6 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,11 +87,14 @@
 		D023B71D2581096D006A66F1 /* Tableview */ = {
 			isa = PBXGroup;
 			children = (
+				D053BF0825837A610068E6E6 /* PrototypeCells */,
 				D036561B257E83350083D1B6 /* SubViewWithTable.swift */,
 				D023B71B2581090C006A66F1 /* TableviewWithCustomCell.swift */,
 				D023B71E258109AD006A66F1 /* CustomTableViewCell.swift */,
 				D023B71F258109AD006A66F1 /* CustomTableViewCell.xib */,
 				D0FABF58258130860050BD6C /* CustomDesignableView.xib */,
+				D053BF0B25837DB60068E6E6 /* TestViewController.swift */,
+				D053BF0C25837DB60068E6E6 /* TestViewController.xib */,
 			);
 			path = Tableview;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 				D023B71D2581096D006A66F1 /* Tableview */,
 				D0365617257E6BBF0083D1B6 /* BaseView.swift */,
 				D0365619257E781C0083D1B6 /* AddSubview.swift */,
+				D053BF062583773C0068E6E6 /* XibView.swift */,
 			);
 			path = IBDesignable;
 			sourceTree = "<group>";
@@ -148,6 +160,14 @@
 				D036561E257E83AE0083D1B6 /* UIView+AddSubview.swift */,
 			);
 			path = "UIView+Extensions";
+			sourceTree = "<group>";
+		};
+		D053BF0825837A610068E6E6 /* PrototypeCells */ = {
+			isa = PBXGroup;
+			children = (
+				D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */,
+			);
+			path = PrototypeCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +255,7 @@
 				D03655FC257E65230083D1B6 /* Assets.xcassets in Resources */,
 				D023B721258109AD006A66F1 /* CustomTableViewCell.xib in Resources */,
 				D03655F7257E65200083D1B6 /* Main.storyboard in Resources */,
+				D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */,
 				D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,8 +279,11 @@
 				D036561C257E83350083D1B6 /* SubViewWithTable.swift in Sources */,
 				D03655FA257E65200083D1B6 /* TestApp.xcdatamodeld in Sources */,
 				D036561F257E83AE0083D1B6 /* UIView+AddSubview.swift in Sources */,
+				D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */,
+				D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */,
 				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D023B720258109AD006A66F1 /* CustomTableViewCell.swift in Sources */,
+				D053BF072583773C0068E6E6 /* XibView.swift in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 				D023B71C2581090C006A66F1 /* TableviewWithCustomCell.swift in Sources */,
