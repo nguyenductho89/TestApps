@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class CustomTableViewCell: UITableViewCell {
     
-    var view: UIView!
+    var view: CustomDesignableView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,14 +27,15 @@ import UIKit
     func setup() {
         view = loadViewFromNib()
         view.frame = bounds
+        //view.swith.isOn = false
         contentView.addFitSubview(view)
     }
     
-    func loadViewFromNib() -> UIView {
+    func loadViewFromNib() -> CustomDesignableView {
         
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CustomDesignableView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! CustomDesignableView
         
         return view
     }
