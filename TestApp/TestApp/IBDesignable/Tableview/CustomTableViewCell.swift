@@ -27,7 +27,6 @@ import UIKit
     func setup() {
         view = loadViewFromNib()
         view.frame = bounds
-        
         contentView.addFitSubview(view)
     }
     

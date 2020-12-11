@@ -14,23 +14,14 @@ class TableviewWithCustomCell: BaseView {
         self.addFitSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
     }
 }
 
 extension TableviewWithCustomCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        var cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell
-//        if cell == nil {
-//            cell = CustomTableViewCell()
-//        }
-        let cell = CustomTableViewCell()
-        
-        cell.textLabel?.text = "manhdm: \(indexPath.row)"
-        //cell.textLabel?.text = "thond"
-//        cell.backgroundColor = .green
-//        cell.textLabel?.text = "thond"
-        //return CustomTableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath)
+        cell.textLabel?.text = "thond: \(indexPath.row)"
         return cell
     }
     
@@ -51,6 +42,6 @@ extension TableviewWithCustomCell: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 70
     }
 }
