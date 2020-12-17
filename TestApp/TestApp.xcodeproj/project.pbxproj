@@ -26,7 +26,6 @@
 		D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */; };
 		D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0B25837DB60068E6E6 /* TestViewController.swift */; };
 		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
-		D053BF10258388110068E6E6 /* CustomDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0F258388110068E6E6 /* CustomDesignableView.swift */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		D053BF0F258388110068E6E6 /* CustomDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignableView.swift; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +95,6 @@
 				D0FABF58258130860050BD6C /* CustomDesignableView.xib */,
 				D053BF0B25837DB60068E6E6 /* TestViewController.swift */,
 				D053BF0C25837DB60068E6E6 /* TestViewController.xib */,
-				D053BF0F258388110068E6E6 /* CustomDesignableView.swift */,
 			);
 			path = Tableview;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */,
 				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D023B720258109AD006A66F1 /* CustomTableViewCell.swift in Sources */,
-				D053BF10258388110068E6E6 /* CustomDesignableView.swift in Sources */,
 				D053BF072583773C0068E6E6 /* XibView.swift in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
