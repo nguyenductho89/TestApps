@@ -8,9 +8,9 @@
 
 import UIKit
 
-@IBDesignable class CustomTableViewCell: UITableViewCell {
+@IBDesignable class UIDesignableTableviewCell<DesignableView: UIView>: UITableViewCell {
     
-    var view: UIView!
+    var view: DesignableView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,12 +30,16 @@ import UIKit
         contentView.addFitSubview(view)
     }
     
-    func loadViewFromNib() -> UIView {
+    func loadViewFromNib() -> DesignableView? {
         
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "CustomDesignableView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        let nib = UINib(nibName: String(describing: DesignableView.self), bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as? DesignableView
         
         return view
     }
+}
+
+class CustomTableViewCell: UIDesignableTableviewCell<CustomDesignableView> {
+    
 }
