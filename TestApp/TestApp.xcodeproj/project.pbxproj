@@ -26,6 +26,8 @@
 		D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */; };
 		D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0B25837DB60068E6E6 /* TestViewController.swift */; };
 		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
+		D069EA17259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069EA16259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift */; };
+		D069EA1D25934C010075D7FC /* TableCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069EA1C25934C010075D7FC /* TableCustomViewModel.swift */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		D069EA16259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewWithCustomCellSwiftUI.swift; sourceTree = "<group>"; };
+		D069EA1C25934C010075D7FC /* TableCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCustomViewModel.swift; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 		D023B71D2581096D006A66F1 /* Tableview */ = {
 			isa = PBXGroup;
 			children = (
+				D069EA15259343E50075D7FC /* SwiftUI */,
 				D053BF0825837A610068E6E6 /* PrototypeCells */,
 				D036561B257E83350083D1B6 /* SubViewWithTable.swift */,
 				D023B71B2581090C006A66F1 /* TableviewWithCustomCell.swift */,
@@ -168,6 +173,15 @@
 				D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */,
 			);
 			path = PrototypeCells;
+			sourceTree = "<group>";
+		};
+		D069EA15259343E50075D7FC /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D069EA16259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift */,
+				D069EA1C25934C010075D7FC /* TableCustomViewModel.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +297,9 @@
 				D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */,
 				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D023B720258109AD006A66F1 /* CustomTableViewCell.swift in Sources */,
+				D069EA1D25934C010075D7FC /* TableCustomViewModel.swift in Sources */,
 				D053BF072583773C0068E6E6 /* XibView.swift in Sources */,
+				D069EA17259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 				D023B71C2581090C006A66F1 /* TableviewWithCustomCell.swift in Sources */,

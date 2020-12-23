@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
-
+    
+    @ObservedObject var viewModel = TableCustomViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
 
 
