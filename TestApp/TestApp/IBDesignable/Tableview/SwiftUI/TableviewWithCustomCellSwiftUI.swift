@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+@available(iOS 14.0, *)
 struct TableviewWithCustomCellSwiftUI: View {
-    @ObservedObject var viewModel = TableCustomViewModel()
+    @StateObject var viewModel = TableCustomViewModel()
     
     var body: some View {
-        List(viewModel.customViewModel) { item in
+        List(viewModel.model) { item in
             VStack {
                 Text("\(item.time)")
             }.frame(maxWidth: .infinity)
@@ -24,6 +25,10 @@ struct TableviewWithCustomCellSwiftUI: View {
 
 struct TableviewWithCustomCellSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
-        TableviewWithCustomCellSwiftUI()
+        if #available(iOS 14.0, *) {
+            TableviewWithCustomCellSwiftUI()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

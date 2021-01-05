@@ -8,25 +8,25 @@
 
 import SwiftUI
 
-struct CustomViewModel: Identifiable {
+struct Model: Identifiable {
     var id = UUID()
     var time = 0
 }
 
 class TableCustomViewModel: ObservableObject {
-    @Published var customViewModel = [CustomViewModel]()
+    @Published var model = [Model]()
     
     init() {
-        customViewModel = [CustomViewModel(time: Int.random(in: 0...1000)),
-                           CustomViewModel(time: Int.random(in: 0...1000)),
-                           CustomViewModel(time: Int.random(in: 0...1000)),
-                           CustomViewModel(time: Int.random(in: 0...1000))]
+        model = [Model(time: Int.random(in: 0...1000)),
+                           Model(time: Int.random(in: 0...1000)),
+                           Model(time: Int.random(in: 0...1000)),
+                           Model(time: Int.random(in: 0...1000))]
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.customViewModel = [CustomViewModel(time: Int.random(in: 0...1000)),
-                                        CustomViewModel(time: Int.random(in: 0...1000)),
-                                        CustomViewModel(time: Int.random(in: 0...1000)),
-                                        CustomViewModel(time: Int.random(in: 0...1000))]
+                self.model = [Model(time: Int.random(in: 0...1000)),
+                                        Model(time: Int.random(in: 0...1000)),
+                                        Model(time: Int.random(in: 0...1000)),
+                                        Model(time: Int.random(in: 0...1000))]
             }
 
     }
