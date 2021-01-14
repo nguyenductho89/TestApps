@@ -7,9 +7,9 @@
 //
 
 import SwiftUI
-@available(iOS 14.0, *)
+
 struct TableviewWithCustomCellSwiftUI: View {
-    @StateObject var viewModel = TableCustomViewModel()
+    @State var viewModel = TableCustomViewModel()
     
     var body: some View {
         List(viewModel.model) { item in
