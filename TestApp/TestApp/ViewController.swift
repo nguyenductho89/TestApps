@@ -20,8 +20,12 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        (self.view as? TestAddSubviewView)?.viewDidLoad?()
+    }
+    
     override func viewWillLayoutSubviews() {
-        
+        super.viewWillLayoutSubviews()
     }
 
 }

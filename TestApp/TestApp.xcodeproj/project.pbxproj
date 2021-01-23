@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,8 @@
 		D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */; };
 		D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0B25837DB60068E6E6 /* TestViewController.swift */; };
 		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
+		D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */; };
+		D09EC08F25BBD5E800194690 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D09EC08E25BBD5E800194690 /* SnapKit */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,7 @@
 		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddSubviewView.swift; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09EC08F25BBD5E800194690 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +150,7 @@
 		D0365614257E6B7C0083D1B6 /* IBDesignable */ = {
 			isa = PBXGroup;
 			children = (
+				D09EC08625BBCA2500194690 /* AddSubviews */,
 				D023B71D2581096D006A66F1 /* Tableview */,
 				D0365617257E6BBF0083D1B6 /* BaseView.swift */,
 				D0365619257E781C0083D1B6 /* AddSubview.swift */,
@@ -170,6 +175,14 @@
 			path = PrototypeCells;
 			sourceTree = "<group>";
 		};
+		D09EC08625BBCA2500194690 /* AddSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */,
+			);
+			path = AddSubviews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +199,9 @@
 			dependencies = (
 			);
 			name = TestApp;
+			packageProductDependencies = (
+				D09EC08E25BBD5E800194690 /* SnapKit */,
+			);
 			productName = TestApp;
 			productReference = D03655EC257E65200083D1B6 /* TestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = thond;
 				TargetAttributes = {
 					D03655EB257E65200083D1B6 = {
@@ -236,6 +252,9 @@
 				Base,
 			);
 			mainGroup = D03655E3257E65200083D1B6;
+			packageReferences = (
+				D09EC08D25BBD5E800194690 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D03655ED257E65200083D1B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +305,7 @@
 				D053BF072583773C0068E6E6 /* XibView.swift in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
+				D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */,
 				D023B71C2581090C006A66F1 /* TableviewWithCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +374,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -414,6 +435,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -553,6 +575,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D09EC08D25BBD5E800194690 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D09EC08E25BBD5E800194690 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D09EC08D25BBD5E800194690 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D03655F8257E65200083D1B6 /* TestApp.xcdatamodeld */ = {

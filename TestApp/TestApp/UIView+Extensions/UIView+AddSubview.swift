@@ -20,3 +20,10 @@ extension UIView {
         self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
 }
+
+extension UIView {
+    var globalFrame: CGRect? {
+        let rootView = UIApplication.shared.keyWindow?.rootViewController?.view
+        return self.superview?.convert(self.frame, to: rootView)
+    }
+}
