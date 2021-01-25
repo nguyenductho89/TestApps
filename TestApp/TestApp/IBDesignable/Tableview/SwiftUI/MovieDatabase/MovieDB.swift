@@ -11,7 +11,7 @@ import Combine
 
 // 1
 enum MovieDB {
-    static let apiClient = APIClient()
+    static let apiClient = RestApiClient()
     static let baseUrl = URL(string: "https://api.themoviedb.org/3/")!
 }
 

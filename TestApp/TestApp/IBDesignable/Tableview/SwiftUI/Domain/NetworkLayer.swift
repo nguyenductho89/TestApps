@@ -9,7 +9,31 @@
 import Foundation
 import Combine
 
-struct APIClient {
+public protocol URLRequestConvertible {
+    func asURLRequest() -> URLRequest
+}
+
+protocol DataModelSource: URLRequestConvertible {}
+
+protocol DataClientProtocol {
+    func request<T: Codable>(from source: DataModelSource) -> AnyPublisher<T, Error>
+}
+
+struct RestfulClient: DataClientProtocol {
+
+    func request<T: Codable>(from source: DataModelSource) -> AnyPublisher<T, Error> {
+        return URLSession.shared
+            .dataTaskPublisher(for: source.asURLRequest()) // 3
+            .tryMap { result -> T in
+                let value = try JSONDecoder().decode(T.self, from: result.data) // 4
+                return value
+            }
+            .receive(on: DispatchQueue.main) // 6
+            .eraseToAnyPublisher() // 7
+    }
+}
+
+struct RestApiClient {
 
     struct Response<T> {
         let value: T
