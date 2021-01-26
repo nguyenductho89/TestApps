@@ -17,7 +17,7 @@ struct MoviesView: View {
         List(viewModel.movies) { movie in // 2
             HStack {
                 VStack(alignment: .leading) {
-                    Text(movie.title) // 3a
+                    Text(movie.title + "thond") // 3a
                         .font(.headline)
                     Text(movie.originalTitle) // 3b
                         .font(.subheadline)
@@ -30,6 +30,8 @@ struct MoviesView: View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MoviesView()
+        Group {
+            MoviesView()
+        }
     }
 }

@@ -32,7 +32,7 @@ extension MovieViewModel {
     
     // Subscriber implementation
     func getMovies() {
-        cancellationToken = MovieDB.request(.trendingMoviesWeekly) // 4
+        cancellationToken = ErrorDecodeClient<MovieResponse>().request(to: MovieSource())
             .mapError({ (error) -> Error in // 5
                 print(error)
                 return error
@@ -40,8 +40,7 @@ extension MovieViewModel {
             .sink(receiveCompletion: { _ in }, // 6
                   receiveValue: {
                     self.movies = $0.movies // 7
-            })
+                  })
     }
-    
 }
 
