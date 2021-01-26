@@ -20,6 +20,7 @@ struct MovieResponse: Codable {
 class MovieViewModel: ObservableObject {
     
     @Published var movies: [Movie] = [] // 1
+    @Published var error: Error? // 1
     var cancellationToken: AnyCancellable? // 2
     
     init() {
@@ -32,9 +33,9 @@ extension MovieViewModel {
     
     // Subscriber implementation
     func getMovies() {
-        cancellationToken = ErrorDecodeClient<MovieResponse>().request(to: MovieSource())
+        cancellationToken = RestfulClient<MovieResponse>().request(to: MovieSource())
             .mapError({ (error) -> Error in // 5
-                print(error)
+                self.error = error
                 return error
             })
             .sink(receiveCompletion: { _ in }, // 6

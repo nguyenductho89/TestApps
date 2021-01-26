@@ -53,6 +53,7 @@ extension DataModelSource {
         request.httpMethod = method.rawValue
         request.httpBody = httpBody
         request.allHTTPHeaderFields = headers
+        request.cachePolicy = .reloadIgnoringLocalCacheData
         return request
     }
 }
@@ -77,14 +78,21 @@ struct RestfulClient<T: Codable>: DataClientProtocol {
     typealias DataModelResponse = T
 
     func request(to source: DataModelSource) -> AnyPublisher<T, Error> {
-        return URLSession.shared
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        let sesstion = URLSession(configuration: config)
+        return sesstion
             .dataTaskPublisher(for: source.asURLRequest()) // 3
-            .tryMap { result -> T in
-                let value = try JSONDecoder().decode(T.self, from: result.data) // 4
-                return value
+            .retry(1)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                    throw URLError(URLError.Code(rawValue: (response as! HTTPURLResponse).statusCode))
+                }
+                return data
             }
+            .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main) // 6
-            .eraseToAnyPublisher() // 7
+            .eraseToAnyPublisher() // 7a
     }
 }
 
@@ -164,7 +172,7 @@ struct MovieSource: DataModelSource {
     
     var httpBody: Data?
     
-    var headers: [String : String] = ["api_key":"d8bf82ea45a0089344a096dc38bad04f"]
+    var headers: [String : String] = ["Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOGJmODJlYTQ1YTAwODkzNDRhMDk2ZGMzOGJhZDA0ZiIsInN1YiI6IjVkODgyYWM3NzliM2Q0MDAyNzgwZjkyNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1IGXhVn4ZWSJnJ-xGPxznbVY3X20Dqx03kWxmsvCOPc"]
     
     var baseURL = URL(string: "https://api.themoviedb.org/3/")!
     

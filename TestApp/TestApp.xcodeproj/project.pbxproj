@@ -35,6 +35,7 @@
 		D067BFF225ADA01400277650 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D067BFF125ADA01400277650 /* HexagonParameters.swift */; };
 		D069EA17259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069EA16259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift */; };
 		D069EA1D25934C010075D7FC /* TableCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069EA1C25934C010075D7FC /* TableCustomViewModel.swift */; };
+		D0F003DE25C076FB00A8A35A /* RestfulApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F003DD25C076FB00A8A35A /* RestfulApiError.swift */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		D067BFF125ADA01400277650 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
 		D069EA16259344120075D7FC /* TableviewWithCustomCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewWithCustomCellSwiftUI.swift; sourceTree = "<group>"; };
 		D069EA1C25934C010075D7FC /* TableCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCustomViewModel.swift; sourceTree = "<group>"; };
+		D0F003DD25C076FB00A8A35A /* RestfulApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestfulApiError.swift; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D01481D525BC6D2E009B67E4 /* NetworkLayer.swift */,
+				D0F003DD25C076FB00A8A35A /* RestfulApiError.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 				D023B71C2581090C006A66F1 /* TableviewWithCustomCell.swift in Sources */,
+				D0F003DE25C076FB00A8A35A /* RestfulApiError.swift in Sources */,
 				D067BFF225ADA01400277650 /* HexagonParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

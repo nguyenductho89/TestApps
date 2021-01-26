@@ -14,15 +14,18 @@ struct MoviesView: View {
     @ObservedObject var viewModel = MovieViewModel()
     
     var body: some View {
-        List(viewModel.movies) { movie in // 2
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(movie.title + "thond") // 3a
-                        .font(.headline)
-                    Text(movie.originalTitle) // 3b
-                        .font(.subheadline)
+       VStack {
+            List(viewModel.movies) { movie in // 2
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(movie.title + "thond") // 3a
+                            .font(.headline)
+                        Text(movie.originalTitle) // 3b
+                            .font(.subheadline)
+                    }
                 }
             }
+        Text("\(viewModel.error?.localizedDescription ?? "")")
         }
     }
 }
