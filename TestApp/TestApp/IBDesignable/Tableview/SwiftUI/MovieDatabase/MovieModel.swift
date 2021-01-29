@@ -17,31 +17,31 @@ struct MovieResponse: Codable {
     }
 }
 
-class MovieViewModel: ObservableObject {
+class MovieViewModel: ObservableObject, DataClientProtocol {
+    
+    typealias DataModelResponse = MovieResponse
     
     @Published var movies: [Movie] = [] // 1
     @Published var error: Error? // 1
     var cancellationToken: AnyCancellable? // 2
     
     init() {
-        getMovies() // 3
-    }
-    
-}
-
-extension MovieViewModel {
-    
-    // Subscriber implementation
-    func getMovies() {
-        cancellationToken = RestfulClient<MovieResponse>().request(to: MovieSource())
+        cancellationToken = self.request(to: MovieSource())
             .mapError({ (error) -> Error in // 5
                 self.error = error
                 return error
             })
             .sink(receiveCompletion: { _ in }, // 6
                   receiveValue: {
-                    self.movies = $0.movies // 7
+                    self.movies = $0.movies
+                    self.error = nil
                   })
+    }
+    
+    func request(to source: DataModelSource) -> AnyPublisher<MovieResponse, Error> {
+        let remote = RestfulClient<MovieResponse>().request(to: source)
+        let local = ErrorDecodeClient<MovieResponse>().request(to: source)
+        return Publishers.Concatenate(prefix: local, suffix: remote).eraseToAnyPublisher()
     }
 }
 

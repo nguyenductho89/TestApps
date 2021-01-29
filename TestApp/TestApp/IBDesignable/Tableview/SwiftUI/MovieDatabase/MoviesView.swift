@@ -14,7 +14,8 @@ struct MoviesView: View {
     @ObservedObject var viewModel = MovieViewModel()
     
     var body: some View {
-       VStack {
+        VStack {
+            Text("\(viewModel.error?.localizedDescription ?? "")")
             List(viewModel.movies) { movie in // 2
                 HStack {
                     VStack(alignment: .leading) {
@@ -25,7 +26,6 @@ struct MoviesView: View {
                     }
                 }
             }
-        Text("\(viewModel.error?.localizedDescription ?? "")")
         }
     }
 }
