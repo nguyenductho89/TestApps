@@ -24,6 +24,7 @@ import Foundation
     3 Flow coordinator
  */
 //https://medium.com/flawless-app-stories/flow-coordinator-pattern-on-steroids-a52021e31bfe
+//https://pavlepesic.medium.com/coordinator-custom-transitions-b08cce1da8fd
 
 /*
     4 Restful api error
