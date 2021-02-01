@@ -76,12 +76,15 @@ protocol DataClientProtocol {
 //Resful client
 struct RestfulClient<T: Codable>: DataClientProtocol {
     typealias DataModelResponse = T
+    
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = false
+        return URLSession(configuration: config)
+    }()
 
     func request(to source: DataModelSource) -> AnyPublisher<T, Error> {
-        let config = URLSessionConfiguration.default
-        config.waitsForConnectivity = true
-        let sesstion = URLSession(configuration: config)
-        return sesstion
+        return session
             .dataTaskPublisher(for: source.asURLRequest()) // 3
             .retry(1)
             .tryMap { data, response in
@@ -185,4 +188,18 @@ struct MovieSource: DataModelSource {
 
 enum DataClientError: Error {
     case decode
+}
+
+extension DataClientError: LocalizedError {
+    var errorDescription: String? {
+        return NSLocalizedString("decode eorrr", comment: "my comment")
+    }
+    
+    var recoverySuggestion: String? {
+        return NSLocalizedString("decode suggest", comment: "my comment")
+    }
+    
+    var failureReason: String? {
+        return NSLocalizedString("decode reason", comment: "my comment")
+    }
 }

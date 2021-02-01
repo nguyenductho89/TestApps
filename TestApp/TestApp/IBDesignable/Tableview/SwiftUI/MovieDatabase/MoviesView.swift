@@ -15,8 +15,14 @@ struct MoviesView: View {
     
     var body: some View {
         VStack {
-            Text("\(viewModel.error?.localizedDescription ?? "")")
-            List(viewModel.movies) { movie in // 2
+            containedView()
+        }
+    }
+    
+    func containedView() -> AnyView {
+        switch viewModel.state {
+        case .listMovie(let movies):
+            return AnyView(List(movies) { movie in // 2
                 HStack {
                     VStack(alignment: .leading) {
                         Text(movie.title + "thond") // 3a
@@ -25,7 +31,11 @@ struct MoviesView: View {
                             .font(.subheadline)
                     }
                 }
-            }
+            })
+        case .error(let error):
+            return AnyView(Text("\(error.localizedDescription )"))
+        case .emptyListMovie:
+            return AnyView(Text("No movies"))
         }
     }
 }

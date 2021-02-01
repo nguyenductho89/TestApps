@@ -17,31 +17,39 @@ struct MovieResponse: Codable {
     }
 }
 
+enum MovieViewModelState {
+    case listMovie([Movie])
+    case error(Error)
+    case emptyListMovie
+}
+
 class MovieViewModel: ObservableObject, DataClientProtocol {
     
     typealias DataModelResponse = MovieResponse
-    
-    @Published var movies: [Movie] = [] // 1
-    @Published var error: Error? // 1
+    @Published var state = MovieViewModelState.emptyListMovie
     var cancellationToken: AnyCancellable? // 2
     
     init() {
-        cancellationToken = self.request(to: MovieSource())
-            .mapError({ (error) -> Error in // 5
-                self.error = error
-                return error
-            })
-            .sink(receiveCompletion: { _ in }, // 6
-                  receiveValue: {
-                    self.movies = $0.movies
-                    self.error = nil
-                  })
+        cancellationToken = self.request(to: MovieSource()).sink(receiveCompletion: { (error) in
+            guard let error = error as? Error else {return}
+            self.state = .error(error)
+        }, receiveValue: { response in
+            guard !response.movies.isEmpty else {
+                self.state = .emptyListMovie
+                return
+            }
+            self.state = .listMovie(response.movies)
+        })
     }
     
     func request(to source: DataModelSource) -> AnyPublisher<MovieResponse, Error> {
         let remote = RestfulClient<MovieResponse>().request(to: source)
-        let local = ErrorDecodeClient<MovieResponse>().request(to: source)
-        return Publishers.Concatenate(prefix: local, suffix: remote).eraseToAnyPublisher()
+        let local = LocalClient<MovieResponse>().request(to: source)
+            .tryCatch {_ in Just(MovieResponse(movies: []))}
+            .eraseToAnyPublisher()
+        return Publishers.Concatenate(prefix: local, suffix: remote)
+            .print("thond:", to: nil)
+            .eraseToAnyPublisher()
     }
 }
 
