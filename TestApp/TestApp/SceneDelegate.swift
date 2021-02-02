@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,6 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
+        DIContainer.shared.register(type: MovieViewModel.self, component: MovieViewModel(with: MovieSource(),
+                                                                                         remote: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                                                            .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                                                            .eraseToAnyPublisher(),
+                                                                                         local: LocalClient<MovieResponse>().request(to: MovieSource())
+                                                                                            .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                                                            .eraseToAnyPublisher()))
+                    
         if #available(iOS 14.0, *) {
             let contentView = MoviesView()
             if let windowScene = scene as? UIWindowScene {

@@ -79,7 +79,7 @@ struct RestfulClient<T: Codable>: DataClientProtocol {
     
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
-        config.waitsForConnectivity = false
+        config.waitsForConnectivity = true
         return URLSession(configuration: config)
     }()
 

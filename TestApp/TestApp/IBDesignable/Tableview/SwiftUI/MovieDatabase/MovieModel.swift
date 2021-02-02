@@ -28,27 +28,37 @@ class MovieViewModel: ObservableObject, DataClientProtocol {
     typealias DataModelResponse = MovieResponse
     @Published var state = MovieViewModelState.emptyListMovie
     var cancellationToken: AnyCancellable? // 2
-    
-    init() {
-        cancellationToken = self.request(to: MovieSource()).sink(receiveCompletion: { (error) in
-            guard let error = error as? Error else {return}
-            self.state = .error(error)
-        }, receiveValue: { response in
-            guard !response.movies.isEmpty else {
-                self.state = .emptyListMovie
-                return
-            }
-            self.state = .listMovie(response.movies)
-        })
+    var remote: AnyPublisher<MovieResponse, Error>!
+    var local: AnyPublisher<MovieResponse, Error>!
+    init(with source: DataModelSource,
+         remote: AnyPublisher<MovieResponse, Error>,
+         local: AnyPublisher<MovieResponse, Error>) {
+        self.remote = remote
+//            ErrorDecodeClient<MovieResponse>().request(to: source)
+//            .tryCatch {_ in Just(MovieResponse(movies: []))}
+//            .eraseToAnyPublisher()
+        self.local = local
+//            LocalClient<MovieResponse>().request(to: source)
+//            .tryCatch {_ in Just(MovieResponse(movies: []))}
+//            .eraseToAnyPublisher()
+        cancellationToken = self.request(to: MovieSource())
+            .sink(receiveCompletion: { (error) in
+                switch error {
+                    case .finished:break
+                    case .failure(let error):
+                        self.state = .error(error)
+                }
+            }, receiveValue: { response in
+                guard !response.movies.isEmpty else {
+                    self.state = .emptyListMovie
+                    return
+                }
+                self.state = .listMovie(response.movies)
+            })
     }
     
     func request(to source: DataModelSource) -> AnyPublisher<MovieResponse, Error> {
-        let remote = RestfulClient<MovieResponse>().request(to: source)
-        let local = LocalClient<MovieResponse>().request(to: source)
-            .tryCatch {_ in Just(MovieResponse(movies: []))}
-            .eraseToAnyPublisher()
         return Publishers.Concatenate(prefix: local, suffix: remote)
-            .print("thond:", to: nil)
             .eraseToAnyPublisher()
     }
 }

@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MoviesView: View {
     
     // 1
-    @ObservedObject var viewModel = MovieViewModel()
+    @ObservedObject var viewModel: MovieViewModel = DIContainer.shared.resolve(type: MovieViewModel.self)!
     
     var body: some View {
         VStack {
@@ -44,7 +45,28 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            MoviesView()
+            MoviesView(viewModel: MovieViewModel(with: MovieSource(),
+                                                 remote: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                    .eraseToAnyPublisher(),
+                                                 local: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                        .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                        .eraseToAnyPublisher()))
+            
+            MoviesView(viewModel: MovieViewModel(with: MovieSource(),
+                                                 remote: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                    .eraseToAnyPublisher(),
+                                                 local: LocalClient<MovieResponse>().request(to: MovieSource())
+                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                    .eraseToAnyPublisher()))
+            MoviesView(viewModel: MovieViewModel(with: MovieSource(),
+                                                 remote: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                    .eraseToAnyPublisher(),
+                                                 local: LocalClient<MovieResponse>().request(to: MovieSource())
+                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
+                                                    .eraseToAnyPublisher()))
         }
     }
 }
