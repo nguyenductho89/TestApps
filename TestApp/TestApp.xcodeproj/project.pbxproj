@@ -13,7 +13,6 @@
 		D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03655EF257E65200083D1B6 /* AppDelegate.swift */; };
 		D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03655F1257E65200083D1B6 /* SceneDelegate.swift */; };
 		D03655F4257E65200083D1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03655F3257E65200083D1B6 /* ViewController.swift */; };
-		D03655F7257E65200083D1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03655F5257E65200083D1B6 /* Main.storyboard */; };
 		D03655FA257E65200083D1B6 /* TestApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D03655F8257E65200083D1B6 /* TestApp.xcdatamodeld */; };
 		D03655FC257E65230083D1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03655FB257E65230083D1B6 /* Assets.xcassets */; };
 		D03655FF257E65230083D1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03655FD257E65230083D1B6 /* LaunchScreen.storyboard */; };
@@ -28,6 +27,18 @@
 		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
 		D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */; };
 		D09EC08F25BBD5E800194690 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D09EC08E25BBD5E800194690 /* SnapKit */; };
+		D0C204F425F0B3A300DA98A5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */; };
+		D0C204F525F0B3A300DA98A5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */; };
+		D0C204FB25F0B44700DA98A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C204FA25F0B44700DA98A5 /* MainViewController.swift */; };
+		D0C204FC25F0B44700DA98A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C204FA25F0B44700DA98A5 /* MainViewController.swift */; };
+		D0C2051625F0C73900DA98A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2051525F0C73900DA98A5 /* HomeViewController.swift */; };
+		D0C2051725F0C73900DA98A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2051525F0C73900DA98A5 /* HomeViewController.swift */; };
+		D0C2051D25F0DD3E00DA98A5 /* UITest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C2051C25F0DD3E00DA98A5 /* UITest.storyboard */; };
+		D0C2052325F0DE3400DA98A5 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2052225F0DE3400DA98A5 /* SideMenuView.swift */; };
+		D0C2052925F0E8CC00DA98A5 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2052825F0E8CC00DA98A5 /* BackViewController.swift */; };
+		D0C2052A25F0E8CC00DA98A5 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2052825F0E8CC00DA98A5 /* BackViewController.swift */; };
+		D0C2052E25F0E8E000DA98A5 /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2052D25F0E8E000DA98A5 /* BackView.swift */; };
+		D0C2052F25F0E8E000DA98A5 /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2052D25F0E8E000DA98A5 /* BackView.swift */; };
 		D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FABF58258130860050BD6C /* CustomDesignableView.xib */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +60,6 @@
 		D03655EF257E65200083D1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03655F1257E65200083D1B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D03655F3257E65200083D1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D03655F6257E65200083D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D03655F9257E65200083D1B6 /* TestApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestApp.xcdatamodel; sourceTree = "<group>"; };
 		D03655FB257E65230083D1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03655FE257E65230083D1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +76,13 @@
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddSubviewView.swift; sourceTree = "<group>"; };
+		D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		D0C204FA25F0B44700DA98A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D0C2051525F0C73900DA98A5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D0C2051C25F0DD3E00DA98A5 /* UITest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UITest.storyboard; sourceTree = "<group>"; };
+		D0C2052225F0DE3400DA98A5 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		D0C2052825F0E8CC00DA98A5 /* BackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
+		D0C2052D25F0E8E000DA98A5 /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackView.swift; sourceTree = "<group>"; };
 		D0FABF58258130860050BD6C /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,16 +141,17 @@
 		D03655EE257E65200083D1B6 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0C204F125F09BEB00DA98A5 /* ContainerViewcontrollers */,
 				D036561D257E83910083D1B6 /* UIView+Extensions */,
 				D0365614257E6B7C0083D1B6 /* IBDesignable */,
 				D03655EF257E65200083D1B6 /* AppDelegate.swift */,
 				D03655F1257E65200083D1B6 /* SceneDelegate.swift */,
 				D03655F3257E65200083D1B6 /* ViewController.swift */,
-				D03655F5257E65200083D1B6 /* Main.storyboard */,
 				D03655FB257E65230083D1B6 /* Assets.xcassets */,
 				D03655FD257E65230083D1B6 /* LaunchScreen.storyboard */,
 				D0365600257E65230083D1B6 /* Info.plist */,
 				D03655F8257E65200083D1B6 /* TestApp.xcdatamodeld */,
+				D0C2051C25F0DD3E00DA98A5 /* UITest.storyboard */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -181,6 +199,27 @@
 				D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */,
 			);
 			path = AddSubviews;
+			sourceTree = "<group>";
+		};
+		D0C204F125F09BEB00DA98A5 /* ContainerViewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				D0C204F225F0B2CC00DA98A5 /* SideMenu */,
+			);
+			path = ContainerViewcontrollers;
+			sourceTree = "<group>";
+		};
+		D0C204F225F0B2CC00DA98A5 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */,
+				D0C2052225F0DE3400DA98A5 /* SideMenuView.swift */,
+				D0C204FA25F0B44700DA98A5 /* MainViewController.swift */,
+				D0C2051525F0C73900DA98A5 /* HomeViewController.swift */,
+				D0C2052825F0E8CC00DA98A5 /* BackViewController.swift */,
+				D0C2052D25F0E8E000DA98A5 /* BackView.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,10 +309,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C2051D25F0DD3E00DA98A5 /* UITest.storyboard in Resources */,
 				D03655FF257E65230083D1B6 /* LaunchScreen.storyboard in Resources */,
 				D03655FC257E65230083D1B6 /* Assets.xcassets in Resources */,
 				D023B721258109AD006A66F1 /* CustomTableViewCell.xib in Resources */,
-				D03655F7257E65200083D1B6 /* Main.storyboard in Resources */,
 				D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */,
 				D0FABF59258130860050BD6C /* CustomDesignableView.xib in Resources */,
 			);
@@ -294,11 +333,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03655F4257E65200083D1B6 /* ViewController.swift in Sources */,
+				D0C204F425F0B3A300DA98A5 /* SideMenuViewController.swift in Sources */,
 				D036561A257E781C0083D1B6 /* AddSubview.swift in Sources */,
+				D0C2051625F0C73900DA98A5 /* HomeViewController.swift in Sources */,
 				D036561C257E83350083D1B6 /* SubViewWithTable.swift in Sources */,
 				D03655FA257E65200083D1B6 /* TestApp.xcdatamodeld in Sources */,
+				D0C2052325F0DE3400DA98A5 /* SideMenuView.swift in Sources */,
 				D036561F257E83AE0083D1B6 /* UIView+AddSubview.swift in Sources */,
 				D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */,
+				D0C204FB25F0B44700DA98A5 /* MainViewController.swift in Sources */,
 				D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */,
 				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D023B720258109AD006A66F1 /* CustomTableViewCell.swift in Sources */,
@@ -306,7 +349,9 @@
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 				D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */,
+				D0C2052E25F0E8E000DA98A5 /* BackView.swift in Sources */,
 				D023B71C2581090C006A66F1 /* TableviewWithCustomCell.swift in Sources */,
+				D0C2052925F0E8CC00DA98A5 /* BackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +359,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C204FC25F0B44700DA98A5 /* MainViewController.swift in Sources */,
 				D036560A257E65230083D1B6 /* TestAppTests.swift in Sources */,
+				D0C204F525F0B3A300DA98A5 /* SideMenuViewController.swift in Sources */,
+				D0C2052F25F0E8E000DA98A5 /* BackView.swift in Sources */,
+				D0C2052A25F0E8CC00DA98A5 /* BackViewController.swift in Sources */,
+				D0C2051725F0C73900DA98A5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,14 +379,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D03655F5257E65200083D1B6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D03655F6257E65200083D1B6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D03655FD257E65230083D1B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

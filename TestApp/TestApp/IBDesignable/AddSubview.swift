@@ -91,8 +91,8 @@ class AddSubview: BaseView {
             customLabel.backgroundColor = .white
             self.addSubview(customLabel)
             let horizontalConstraint = customLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-                let verticalConstraint = customLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-                NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+            let verticalConstraint = customLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
             }
     }
 }
