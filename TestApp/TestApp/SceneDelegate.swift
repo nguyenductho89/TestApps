@@ -20,15 +20,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        //self.window =  UIWindow(frame: UIScreen.main.bounds)
         
-        let rootVC = MainViewController()
-        let rootVC2 = BackViewController()
-        let rootNC = UINavigationController(rootViewController: rootVC)
+        let backVC = BackViewController()
+        
+        let sideMenuVC = SideMenuViewController()
+        
+        let mainVC = MainViewController()
         let rootTC = UITabBarController()
-        rootTC.addChild(rootNC)
-        rootTC.addChild(rootVC2)
-        self.window?.rootViewController = BackViewController()
+        rootTC.addChild(mainVC)
+        rootTC.addChild(HomeViewController())
+        rootTC.addChild(MainViewController())
+        rootTC.addChild(HomeViewController())
+        backVC.addChildViews(leftView: sideMenuVC.view,
+                             rightView: rootTC.view)
+        
+        self.window?.rootViewController = backVC
         self.window?.makeKeyAndVisible()
     }
 

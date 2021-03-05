@@ -12,7 +12,7 @@
         <!--Item-->
         <scene sceneID="I6C-ve-Qa0">
             <objects>
-                <viewController id="ANo-wo-lQh" customClass="BackViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ANo-wo-lQh" customClass="TestViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8w0-fk-Ybp" customClass="BackView" customModule="TestApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

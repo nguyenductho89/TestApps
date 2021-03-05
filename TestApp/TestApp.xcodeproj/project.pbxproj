@@ -75,6 +75,7 @@
 		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		D07E526E25F1C400002117B9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddSubviewView.swift; sourceTree = "<group>"; };
 		D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D0C204FA25F0B44700DA98A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 				D0365600257E65230083D1B6 /* Info.plist */,
 				D03655F8257E65200083D1B6 /* TestApp.xcdatamodeld */,
 				D0C2051C25F0DD3E00DA98A5 /* UITest.storyboard */,
+				D07E526E25F1C400002117B9 /* README.md */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
