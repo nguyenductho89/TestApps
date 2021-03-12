@@ -26,10 +26,22 @@ class BackViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func addChildViews(leftView: UIView,
-                       rightView: UIView) {
+    func addChildViewController(leftViewController: UIViewController,
+                       rightViewController: UIViewController) {
+        guard let rightView = rightViewController.view,
+              let leftView = leftViewController.view else {return}
+        backView.rightContainerView.addSubview(rightView)
+        rightView.translatesAutoresizingMaskIntoConstraints = false
+        [rightView.leadingAnchor.constraint(equalTo: backView.rightContainerView.leadingAnchor),
+         rightView.topAnchor.constraint(equalTo: backView.rightContainerView.topAnchor),
+         rightView.bottomAnchor.constraint(equalTo: backView.rightContainerView.bottomAnchor),
+         rightView.widthAnchor.constraint(equalToConstant: rightView.frame.size.width)]
+            .forEach {$0.isActive = true}
         backView.leftContainerView.addFitSubview(leftView)
-        backView.rightContainerView.addFitSubview(rightView)
+        
+        self.addChild(leftViewController)
+        self.addChild(rightViewController)
+        rightViewController.didMove(toParent: self)
     }
 }
 

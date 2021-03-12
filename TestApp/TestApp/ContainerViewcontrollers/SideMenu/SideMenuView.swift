@@ -8,7 +8,11 @@
 
 import UIKit
 
+typealias SelectedCallBack<A> = (A) -> ()
+
 class SideMenuView: BaseView {
+    
+    var selectedMenu: SelectedCallBack<String>?
     
     var menu: [SideMenuModel] = [
         SideMenuModel(title: "Home"),
@@ -36,6 +40,10 @@ class SideMenuView: BaseView {
 extension SideMenuView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedMenu?(menu[indexPath.row].title)
     }
 }
 

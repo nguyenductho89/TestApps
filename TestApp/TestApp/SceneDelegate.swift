@@ -26,13 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let sideMenuVC = SideMenuViewController()
         
         let mainVC = MainViewController()
+        let homeVC = HomeViewController()
         let rootTC = UITabBarController()
-        rootTC.addChild(mainVC)
-        rootTC.addChild(HomeViewController())
-        rootTC.addChild(MainViewController())
-        rootTC.addChild(HomeViewController())
-        backVC.addChildViews(leftView: sideMenuVC.view,
-                             rightView: rootTC.view)
+        rootTC.setViewControllers([mainVC, homeVC], animated: true)
+        backVC.addChildViewController(leftViewController: sideMenuVC,
+                                      rightViewController: rootTC)
         
         self.window?.rootViewController = backVC
         self.window?.makeKeyAndVisible()
@@ -71,4 +69,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

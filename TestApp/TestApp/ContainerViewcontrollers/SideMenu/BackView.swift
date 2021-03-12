@@ -32,54 +32,34 @@ class BackView: BaseView {
         self.setConstraint()
     }
     
-    func setConstraintSnp() {
-        leftContainerView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
-            make.leading.equalTo(self.snp.leading)
-            make.width.equalTo(200.0)
-        }
-        
-        rightContainerView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
-            make.trailing.equalTo(self.snp.trailing)
-            make.leading.equalTo(leftContainerView.snp.trailing)
-        }
-    }
-    
     func setConstraint() {
-        let horizontalConstraint = leftContainerView.topAnchor.constraint(equalTo: self.topAnchor)
-        let verticalConstraint = leftContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        let widthConstraint = leftContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        leftContainerViewWithConstraint = leftContainerView.widthAnchor.constraint(equalToConstant: 200)
-        self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, leftContainerViewWithConstraint])
+        leftContainerView.translatesAutoresizingMaskIntoConstraints = false
         
-        let horizontalConstraint1 = rightContainerView.topAnchor.constraint(equalTo: self.topAnchor)
-        let verticalConstraint1 = rightContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        let widthConstraint1 = rightContainerView.leadingAnchor.constraint(equalTo: self.leftContainerView.trailingAnchor)
-        let heightConstraint1 = rightContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        self.addConstraints([horizontalConstraint1, verticalConstraint1, widthConstraint1, heightConstraint1])
-    }
-    
-    func updateLefViewSnp(_ movingDistance: CGFloat) {
-        UIView.animate(withDuration: 0.1) {
-            [weak self] in
-            guard let self = self else {return}
-            let currentWidth = self.leftContainerView.frame.size.width
-            self.leftContainerView.snp.updateConstraints { make in
-                make.width.equalTo(currentWidth + movingDistance)
-            }
-            print("thond: snp width: \(self.leftContainerView.frame.size.width)")
-        }
+        leftContainerViewWithConstraint = leftContainerView.widthAnchor.constraint(equalToConstant: 200)
+        [leftContainerView.topAnchor.constraint(equalTo: self.topAnchor),
+         leftContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+         leftContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+         leftContainerViewWithConstraint].forEach {$0?.isActive = true}
+        
+        rightContainerView.translatesAutoresizingMaskIntoConstraints = false
+        [rightContainerView.topAnchor.constraint(equalTo: self.topAnchor),
+        rightContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        rightContainerView.leadingAnchor.constraint(equalTo: self.leftContainerView.trailingAnchor),
+        rightContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)]
+            .forEach {$0?.isActive = true}
     }
     
     func updateLefView(_ movingDistance: CGFloat) {
-        UIView.animate(withDuration: 0.1) {
+        let currentWidth = self.leftContainerView.frame.size.width
+        var d = currentWidth + movingDistance < self.frame.size.width*3.0/4.0 ?
+            currentWidth + movingDistance : self.frame.size.width*3.0/4.0
+        if d < 0 { d = 0 }
+        leftContainerViewWithConstraint.isActive = false
+        leftContainerViewWithConstraint = leftContainerView.widthAnchor.constraint(equalToConstant: d)
+        leftContainerViewWithConstraint.isActive = true
+        UIView.animate(withDuration: 0.3) {
             [weak self] in
             guard let self = self else {return}
-            let currentWidth = self.leftContainerView.frame.size.width
-            self.leftContainerViewWithConstraint.constant = currentWidth + movingDistance
             self.layoutIfNeeded()
             print("thond: width: \(self.leftContainerView.frame.size.width)")
         }

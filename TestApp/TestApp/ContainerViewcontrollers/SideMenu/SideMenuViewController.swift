@@ -23,5 +23,8 @@ class SideMenuViewController: UIViewController {
         self.title = "SideMenuViewController"
         self.view.backgroundColor = .systemRed
         self.view.addFitSubview(sideMenuView)
+        self.sideMenuView.selectedMenu = {[weak self] menu in
+            print("thond: menu \(menu)")
+        }
     }
 }

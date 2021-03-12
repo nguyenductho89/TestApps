@@ -9,12 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var sideMenuBtn: UIBarButtonItem!
+    //var sideMenuBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
         self.view.backgroundColor = .systemOrange
-        self.navigationItem.leftBarButtonItem = sideMenuBtn
+       // self.navigationItem.leftBarButtonItem = sideMenuBtn
     }
 }
