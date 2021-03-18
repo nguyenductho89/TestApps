@@ -49,24 +49,10 @@ struct ContentView_Previews: PreviewProvider {
                                                  remote: RestfulClient<MovieResponse>().request(to: MovieSource())
                                                     .tryCatch {_ in Just(MovieResponse(movies: []))}
                                                     .eraseToAnyPublisher(),
-                                                 local: RestfulClient<MovieResponse>().request(to: MovieSource())
+                                                 local: LocalClient<MovieResponse>().request(to: MovieSource())
                                                         .tryCatch {_ in Just(MovieResponse(movies: []))}
                                                         .eraseToAnyPublisher()))
             
-            MoviesView(viewModel: MovieViewModel(with: MovieSource(),
-                                                 remote: RestfulClient<MovieResponse>().request(to: MovieSource())
-                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
-                                                    .eraseToAnyPublisher(),
-                                                 local: LocalClient<MovieResponse>().request(to: MovieSource())
-                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
-                                                    .eraseToAnyPublisher()))
-            MoviesView(viewModel: MovieViewModel(with: MovieSource(),
-                                                 remote: RestfulClient<MovieResponse>().request(to: MovieSource())
-                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
-                                                    .eraseToAnyPublisher(),
-                                                 local: LocalClient<MovieResponse>().request(to: MovieSource())
-                                                    .tryCatch {_ in Just(MovieResponse(movies: []))}
-                                                    .eraseToAnyPublisher()))
         }
     }
 }

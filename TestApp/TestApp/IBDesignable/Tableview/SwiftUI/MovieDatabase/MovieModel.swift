@@ -23,43 +23,46 @@ enum MovieViewModelState {
     case emptyListMovie
 }
 
-class MovieViewModel: ObservableObject, DataClientProtocol {
+class ViewModel<T>: DataClientProtocol {
+    typealias DataModelResponse = T
+    private var remotePublisher: AnyPublisher<T, Error>!
+    private var localPublisher: AnyPublisher<T, Error>!
+    var dataPublisher: AnyPublisher<T, Error>!
     
-    typealias DataModelResponse = MovieResponse
-    @Published var state = MovieViewModelState.emptyListMovie
-    var cancellationToken: AnyCancellable? // 2
-    var remote: AnyPublisher<MovieResponse, Error>!
-    var local: AnyPublisher<MovieResponse, Error>!
     init(with source: DataModelSource,
-         remote: AnyPublisher<MovieResponse, Error>,
-         local: AnyPublisher<MovieResponse, Error>) {
-        self.remote = remote
-//            ErrorDecodeClient<MovieResponse>().request(to: source)
-//            .tryCatch {_ in Just(MovieResponse(movies: []))}
-//            .eraseToAnyPublisher()
-        self.local = local
-//            LocalClient<MovieResponse>().request(to: source)
-//            .tryCatch {_ in Just(MovieResponse(movies: []))}
-//            .eraseToAnyPublisher()
-        cancellationToken = self.request(to: MovieSource())
-            .sink(receiveCompletion: { (error) in
-                switch error {
-                    case .finished:break
-                    case .failure(let error):
-                        self.state = .error(error)
-                }
-            }, receiveValue: { response in
-                guard !response.movies.isEmpty else {
-                    self.state = .emptyListMovie
-                    return
-                }
-                self.state = .listMovie(response.movies)
-            })
+         remote: AnyPublisher<T, Error>,
+         local: AnyPublisher<T, Error>) {
+        self.remotePublisher = remote
+        self.localPublisher = local
+        self.dataPublisher = self.request(to: source)
     }
     
-    func request(to source: DataModelSource) -> AnyPublisher<MovieResponse, Error> {
-        return Publishers.Concatenate(prefix: local, suffix: remote)
+    func request(to source: DataModelSource) -> AnyPublisher<T, Error> {
+        return Publishers.Concatenate(prefix: localPublisher, suffix: remotePublisher)
             .eraseToAnyPublisher()
     }
 }
 
+class MovieViewModel: ViewModel<MovieResponse>, ObservableObject {
+    @Published var state = MovieViewModelState.emptyListMovie
+    var cancellationToken: AnyCancellable? // 2
+    
+    override init(with source: DataModelSource,
+                  remote: AnyPublisher<MovieResponse, Error>,
+                  local: AnyPublisher<MovieResponse, Error>) {
+        super.init(with: source, remote: remote, local: local)
+        cancellationToken = self.dataPublisher.sink(receiveCompletion: { (error) in
+            switch error {
+                case .finished:break
+                case .failure(let error):
+                    self.state = .error(error)
+            }
+        }, receiveValue: { response in
+            guard !response.movies.isEmpty else {
+                self.state = .emptyListMovie
+                return
+            }
+            self.state = .listMovie(response.movies)
+        })
+    }
+}
