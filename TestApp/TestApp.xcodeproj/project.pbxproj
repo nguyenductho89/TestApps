@@ -25,6 +25,7 @@
 		D053BF0A25837A940068E6E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */; };
 		D053BF0D25837DB60068E6E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053BF0B25837DB60068E6E6 /* TestViewController.swift */; };
 		D053BF0E25837DB60068E6E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053BF0C25837DB60068E6E6 /* TestViewController.xib */; };
+		D0681CFC2612E2C300FBAF6A /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0681CFB2612E2C300FBAF6A /* ObjCViewController.m */; };
 		D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */; };
 		D09EC08F25BBD5E800194690 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D09EC08E25BBD5E800194690 /* SnapKit */; };
 		D0C204F425F0B3A300DA98A5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */; };
@@ -75,6 +76,9 @@
 		D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D053BF0B25837DB60068E6E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D053BF0C25837DB60068E6E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		D0681CF92612E2C200FBAF6A /* TestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0681CFA2612E2C300FBAF6A /* ObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
+		D0681CFB2612E2C300FBAF6A /* ObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
 		D07E526E25F1C400002117B9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D09EC08925BBCC2200194690 /* TestAddSubviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddSubviewView.swift; sourceTree = "<group>"; };
 		D0C204F325F0B3A300DA98A5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		D03655EE257E65200083D1B6 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0681CF82612E28C00FBAF6A /* ObjectiveC */,
 				D0C204F125F09BEB00DA98A5 /* ContainerViewcontrollers */,
 				D036561D257E83910083D1B6 /* UIView+Extensions */,
 				D0365614257E6B7C0083D1B6 /* IBDesignable */,
@@ -193,6 +198,16 @@
 				D053BF0925837A940068E6E6 /* SwitchTableViewCell.swift */,
 			);
 			path = PrototypeCells;
+			sourceTree = "<group>";
+		};
+		D0681CF82612E28C00FBAF6A /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				D0681CFA2612E2C300FBAF6A /* ObjCViewController.h */,
+				D0681CFB2612E2C300FBAF6A /* ObjCViewController.m */,
+				D0681CF92612E2C200FBAF6A /* TestApp-Bridging-Header.h */,
+			);
+			path = ObjectiveC;
 			sourceTree = "<group>";
 		};
 		D09EC08625BBCA2500194690 /* AddSubviews */ = {
@@ -277,6 +292,7 @@
 				TargetAttributes = {
 					D03655EB257E65200083D1B6 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1220;
 					};
 					D0365604257E65230083D1B6 = {
 						CreatedOnToolsVersion = 11.5;
@@ -348,6 +364,7 @@
 				D0365618257E6BBF0083D1B6 /* BaseView.swift in Sources */,
 				D023B720258109AD006A66F1 /* CustomTableViewCell.swift in Sources */,
 				D053BF072583773C0068E6E6 /* XibView.swift in Sources */,
+				D0681CFC2612E2C300FBAF6A /* ObjCViewController.m in Sources */,
 				D03655F0257E65200083D1B6 /* AppDelegate.swift in Sources */,
 				D03655F2257E65200083D1B6 /* SceneDelegate.swift in Sources */,
 				D09EC08A25BBCC2200194690 /* TestAddSubviewView.swift in Sources */,
@@ -512,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J3Q6NXR57K;
 				INFOPLIST_FILE = TestApp/Info.plist;
@@ -521,6 +539,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thond.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestApp/ObjectiveC/TestApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -530,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J3Q6NXR57K;
 				INFOPLIST_FILE = TestApp/Info.plist;
@@ -539,6 +560,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thond.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestApp/ObjectiveC/TestApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
